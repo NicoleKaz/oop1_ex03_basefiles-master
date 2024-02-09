@@ -20,7 +20,7 @@ public:
 	void initWithGivenMatrix(std::ifstream& m_ifile);
 	void drawBoard(sf::RenderWindow& m_window);
 	//void drawToolBar(sf::RenderWindow& window);
-	enum texture { WALL = 0, DOOR, CAT, MOUSE, CHEESE, PRESENT, KEY, ERASE, RESET, SAVE,SIZE};
+	enum texture { WALL = 0, DOOR, CAT, MOUSE, CHEESE, PRESENT, KEY, ERASE, RESET, SAVE, TOOL, SIZE };
 
 private:
 	int m_row;

@@ -15,6 +15,7 @@ Board::Board()
     m_textures[SAVE].loadFromFile("save.png");
     m_textures[RESET].loadFromFile("reset.png");
     m_textures[ERASE].loadFromFile("erase.png");
+    m_textures[TOOL].loadFromFile("tool.png");
 
 }
 void Board::initMatrix()

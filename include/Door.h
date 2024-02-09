@@ -1,10 +1,10 @@
-#pragma once
-#include "GameObject.h"
-
-
-class Door : public GameObject
-{
-public:
-    Door();
-    virtual void init() override;
-};
+//#pragma once
+//#include "GameObject.h"
+//
+//
+//class Door : public GameObject
+//{
+//public:
+//    Door();
+//    virtual void init() override;
+//};
