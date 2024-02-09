@@ -54,7 +54,7 @@ void Board::initWithGivenMatrix(std::ifstream &m_ifile)
 
 void Board::drawBoard(sf::RenderWindow &m_window)
 {
-    float offset = 355 ;
+    float offset = 300 ;
     int num_of_row = 0;
     for (int row = 0 ; row < m_matrixVector.size(); row++)
     {

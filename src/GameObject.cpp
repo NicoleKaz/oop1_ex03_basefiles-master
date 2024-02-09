@@ -4,7 +4,6 @@
 
 
 //---------------Wall GameObject-----------------
-
 void Wall::init()
 {
 	m_rec.setSize(sf::Vector2f(140.f, 140.f));
@@ -24,7 +23,6 @@ const char Wall::GetChar()const
 }
 
 //---------------Door GameObject-----------------
-
 void Door::init()
 {
 	m_rec.setSize(sf::Vector2f(140.f, 140.f));
@@ -44,7 +42,6 @@ const char Door::GetChar()const
 }
 
 //---------------Cat GameObject-----------------
-
 void Cat::init()
 {
 	m_rec.setSize(sf::Vector2f(140.f, 140.f));
@@ -64,7 +61,6 @@ const char Cat::GetChar()const
 }
 
 //---------------Mouse GameObject-----------------
-
 void Mouse::init()
 {
 	m_rec.setSize(sf::Vector2f(140.f, 140.f));
@@ -85,10 +81,9 @@ const char Mouse::GetChar()const
 
 
 //---------------Cheese GameObject-----------------
-
 void Cheese::init()
 {
-	m_rec.setSize(sf::Vector2f(100.f, 100.f));
+	m_rec.setSize(sf::Vector2f(140.f, 140.f));
 	m_texture.loadFromFile("cheese.png");
 	m_rec.setTexture(&m_texture);
 	m_rec.setPosition(sf::Vector2f(0, 560));
@@ -105,7 +100,6 @@ const char Cheese::GetChar()const
 }
 
 //---------------Present GameObject-----------------
-
 void Present::init()
 {
 	m_rec.setSize(sf::Vector2f(140.f, 140.f));
@@ -126,7 +120,6 @@ const char Present::GetChar()const
 
 
 //---------------Key GameObject-----------------
-
 void Key::init()
 {
 	m_rec.setSize(sf::Vector2f(140.f, 140.f));
@@ -146,7 +139,6 @@ const char Key::GetChar()const
 }
 
 //---------------Eraze GameObject-----------------
-
 void Erase::init()
 {
 	m_rec.setSize(sf::Vector2f(140.f, 140.f));
@@ -167,7 +159,6 @@ const char Erase::GetChar()const
 
 
 //---------------Reset GameObject-----------------
-
 void Reset::init()
 {
 	m_rec.setSize(sf::Vector2f(140.f, 140.f));
@@ -187,7 +178,6 @@ const char Reset::GetChar()const
 }
 
 //---------------Save GameObject-----------------
-
 void Save::init()
 {
 	m_rec.setSize(sf::Vector2f(140.f, 140.f));
@@ -205,8 +195,8 @@ const char Save::GetChar()const
 {
 	return m_type;
 }
-//---------------Tool----------------
 
+//---------------Tool----------------
 void Tool::init()
 {
 	m_rec.setSize(sf::Vector2f(280.f, 280.f));

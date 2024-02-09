@@ -11,7 +11,6 @@ Controller::Controller()
     m_window.clear(sf::Color::Color(255, 255, 230));
     m_window.draw(s1);
     m_window.display();
-    //m_toolBar.setSize(20.f, 90.f);
 }
 
 void Controller::run()

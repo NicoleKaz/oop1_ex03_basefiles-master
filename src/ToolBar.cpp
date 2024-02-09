@@ -15,7 +15,7 @@ void ToolBar::init()
 	//Style
 	m_outline.setOutlineColor(sf::Color::Color(0, 0, 0));
 	m_outline.setOutlineThickness(4.f);
-	m_outline.setFillColor(sf::Color::Color(0,0,0));
+	m_outline.setFillColor(sf::Color::Color(255, 255, 255));
 
 	//init index
 	for (int index = 0; index < 10; ++index)
