@@ -18,6 +18,7 @@ Board::Board()
     m_textures[TOOL].loadFromFile("tool.png");
 
 }
+
 void Board::initMatrix()
 {
     Row temp_row(m_col);
@@ -174,6 +175,11 @@ void Board::setSize()
 {
 	std::cout << "please enter row and col: ";
 	std::cin >> m_row >> m_col;
+    while (m_col > 18 || m_row > 20 || m_col < 1 || m_row < 1) // correct the size
+    {
+        std::cout << "the maximum c/r size is 1-18/1-20 please enter again col and row: ";
+        std::cin >> m_col >> m_row;
+    }
 }
 
 sf::RectangleShape& Board::getMRec()
@@ -181,4 +187,19 @@ sf::RectangleShape& Board::getMRec()
 	return m_rec;
 }
 
+void Board::reset()
+{
 
+    for (int row = 0; row < m_row; ++row)
+    {
+        //m_matrixVector.clear(); // clear each row
+        //לחשוב איך מוחקים את המטריצה כולה אולי בעזרת דיסטקטור
+    }
+    //m_matrixVector.clear();   //clear the vector of the vectors
+    //row.reset// מחיקת על הריבועים על גבי המשטח
+    setSize();
+    //init();
+    drawBoard
+
+    InitMatrix();
+}

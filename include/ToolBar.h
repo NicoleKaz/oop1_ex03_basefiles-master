@@ -11,6 +11,8 @@ public:
     void init();
     void drawToolBar(sf::RenderWindow& m_window);
     const sf::RectangleShape getObject(const int object);
+    const sf::RectangleShape getButton(const int);
+
     //void draw(sf::RenderWindow& window);
     //const sf::RectangleShape getToolBar();
     //const sf::RectangleShape getButton(const int);

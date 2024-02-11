@@ -33,3 +33,8 @@ void ToolBar::drawToolBar(sf::RenderWindow& m_window)
 		m_window.draw(m_object[object]->GetRec());
 	}
 }
+
+const sf::RectangleShape ToolBar::getButton(const int object)
+{
+	//returns button rectangle
+	return m_object[object]->GetRec();

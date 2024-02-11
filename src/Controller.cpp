@@ -19,6 +19,10 @@ void Controller::run()
     sf::Sprite s1(m_background);
     s1.scale(sf::Vector2f(1.2f, 1.2f));
     init();
+    bool pressed = false;
+    char type = 0;
+    bool reflection = false;
+    int row = 0, col = 0;
     m_window.setFramerateLimit(30);
     while (m_window.isOpen())
     {
@@ -30,17 +34,57 @@ void Controller::run()
         m_window.display();
         if (auto event = sf::Event{}; m_window.waitEvent(event))
         {
+            //handle every case of event
             switch (event.type)
             {
-                case sf::Event::Closed:
+            case sf::Event::Closed:
+                m_window.close();
+                break;
+
+            case sf::Event::MouseButtonReleased:
+            {
+                auto location = m_window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
+                handleClick(location, type, pressed);
+                break;
+            }
+
+            case sf::Event::MouseMoved:
+            {
+                if (pressed) // if was any press at the tool bar
                 {
-                    m_window.close();
-                    break;
+                    handlereflction(reflection, row, col); //update reflection if the press was in the board
                 }
+                break;
+            }
+
             }
         }
     }
 }
+
+void Controller::handleClick(const sf::Vector2f& location, char& type, bool& pressed)
+{
+    //handle each button at the toolbar
+    if (m_toolBar.getButton(RESET).getGlobalBounds().contains(location))
+    {
+        m_board.reset();
+        return;
+    }
+    else if (m_toolBar.getButton(SAVE).getGlobalBounds().contains(location))
+    {
+        CreateFile();
+        return;
+    }
+}
+
+
+
+
+
+
+
+
+
 
 void Controller::init()
 {

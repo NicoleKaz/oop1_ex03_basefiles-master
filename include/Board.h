@@ -4,6 +4,8 @@
 #include <fstream>
 #include "Row.h"
 
+enum texture { WALL = 0, DOOR, CAT, MOUSE, CHEESE, PRESENT, KEY, ERASE, RESET, SAVE, TOOL, SIZE };
+
 
 class Board
 {
@@ -15,7 +17,9 @@ public:
     const int getRow() const;
 	void setSize();
 	sf::RectangleShape& getMRec();
+	void reset();
 	Board();
+
 	void initMatrix();
 	void initWithGivenMatrix(std::ifstream& m_ifile);
 	void drawBoard(sf::RenderWindow& m_window);
