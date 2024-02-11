@@ -12,7 +12,8 @@ public:
     void drawToolBar(sf::RenderWindow& m_window);
     const sf::RectangleShape getObject(const int object);
     const sf::RectangleShape getButton(const int);
-
+    char handleClickToolBar(const sf::Vector2f& location);
+    sf::FloatRect getGlobalBounds()const{ return m_outline.getGlobalBounds();}
     //void draw(sf::RenderWindow& window);
     //const sf::RectangleShape getToolBar();
     //const sf::RectangleShape getButton(const int);
@@ -32,7 +33,6 @@ private:
     Reset m_reset;
     Save m_save;
     Tool m_tool;
-
 
     //buttons array
     GameObject* m_object[NUM_OF_OBJECT] = { &m_wall, &m_door, &m_cat, &m_mouse, &m_cheese,

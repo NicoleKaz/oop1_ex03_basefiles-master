@@ -86,6 +86,11 @@ void Row::push_back(const sf::RectangleShape& value)
 // קבלת ערך במיקום נתון
 const sf::RectangleShape& Row::at(int index) const
 {
+    return sf::RectangleShape(m_cell[index]);
+}
+
+sf::RectangleShape& Row::at(int index)
+{
     return m_cell[index];
 }
 
@@ -93,6 +98,11 @@ const sf::RectangleShape& Row::at(int index) const
 const char Row::getChar(int index) const
 {
     return m_char[index];
+}
+
+void Row::setChar(int index, char type)
+{
+    m_char[index] = type;
 }
 
 // קבלת ערך במיקום נתון

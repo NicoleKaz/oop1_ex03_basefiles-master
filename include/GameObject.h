@@ -133,7 +133,7 @@ public:
 
 private:
 	sf::RectangleShape m_rec;
-	char m_type = ' ';
+	char m_type = 'E';
 	sf::Texture m_texture;
 };
 
@@ -148,7 +148,7 @@ public:
 
 private:
 	sf::RectangleShape m_rec;
-	char m_type = ' ';
+	char m_type = 'R';
 	sf::Texture m_texture;
 };
 
@@ -163,7 +163,7 @@ public:
 
 private:
 	sf::RectangleShape m_rec;
-	char m_type = ' ';
+	char m_type = 'S';
 	sf::Texture m_texture;
 };
 //---------------Tool-----------------

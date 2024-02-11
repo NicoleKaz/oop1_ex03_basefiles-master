@@ -11,19 +11,17 @@ class Board
 {
 public:
 	//const sf::RectangleShape CreateRectangle(const int row, const int col) const;
+	Board();
 	void SetRow(const int row);
 	void SetCol(const int col);
 	const int getCol() const;
     const int getRow() const;
 	void setSize();
 	sf::RectangleShape& getMRec();
-	void reset();
-	Board();
-
+	void handleClickBoard(const sf::Vector2f& location, char& type);
 	void initMatrix();
 	void initWithGivenMatrix(std::ifstream& m_ifile);
 	void drawBoard(sf::RenderWindow& m_window);
-	//void drawToolBar(sf::RenderWindow& window);
 	enum texture { WALL = 0, DOOR, CAT, MOUSE, CHEESE, PRESENT, KEY, ERASE, RESET, SAVE, TOOL, SIZE };
 
 private:

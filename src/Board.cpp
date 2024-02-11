@@ -16,7 +16,6 @@ Board::Board()
     m_textures[RESET].loadFromFile("reset.png");
     m_textures[ERASE].loadFromFile("erase.png");
     m_textures[TOOL].loadFromFile("tool.png");
-
 }
 
 void Board::initMatrix()
@@ -187,19 +186,27 @@ sf::RectangleShape& Board::getMRec()
 	return m_rec;
 }
 
-void Board::reset()
+void Board::handleClickBoard(const sf::Vector2f& location, char& type)
 {
-
-    for (int row = 0; row < m_row; ++row)
+    if (type == '0')
     {
-        //m_matrixVector.clear(); // clear each row
-        //לחשוב איך מוחקים את המטריצה כולה אולי בעזרת דיסטקטור
+        return;
     }
-    //m_matrixVector.clear();   //clear the vector of the vectors
-    //row.reset// מחיקת על הריבועים על גבי המשטח
-    setSize();
-    //init();
-    drawBoard
-
-    InitMatrix();
+    else
+    {
+        for (int row = 0; row < m_matrixVector.size(); row++)
+        {
+            for (int col = 0; col < m_col; col++)
+            {
+                if (m_matrixVector[row].at(col).getGlobalBounds().contains(location))
+                {
+                    m_matrixVector[row].setChar(col, type);
+                    return;
+                }
+                
+            }
+        }
+    }
 }
+
+

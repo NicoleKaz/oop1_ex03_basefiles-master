@@ -9,7 +9,7 @@
 class Controller
 {
 public:
-    Controller();
+    void initWindow();
     void run();
     void init();
 
