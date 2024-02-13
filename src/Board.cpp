@@ -186,9 +186,9 @@ sf::RectangleShape& Board::getMRec()
 	return m_rec;
 }
 
-void Board::handleClickBoard(const sf::Vector2f& location, char& type)
+void Board::handleClickBoard(const sf::Vector2f& location, char& type,bool pressed)
 {
-    if (type == '0')
+    if (!pressed)
     {
         return;
     }
@@ -205,7 +205,7 @@ void Board::handleClickBoard(const sf::Vector2f& location, char& type)
                 }
                 
             }
-        }
+        }  
     }
 }
 

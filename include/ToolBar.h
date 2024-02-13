@@ -12,7 +12,9 @@ public:
     void drawToolBar(sf::RenderWindow& m_window);
     const sf::RectangleShape getObject(const int object);
     const sf::RectangleShape getButton(const int);
-    char handleClickToolBar(const sf::Vector2f& location);
+    char handleClickToolBar(const sf::Vector2f& location,bool pressed);
+    const char GetButtonChar(const int button);
+    const sf::RectangleShape getToolBar();
     sf::FloatRect getGlobalBounds()const{ return m_outline.getGlobalBounds();}
     //void draw(sf::RenderWindow& window);
     //const sf::RectangleShape getToolBar();

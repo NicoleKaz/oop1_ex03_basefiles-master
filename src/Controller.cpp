@@ -36,6 +36,7 @@ void Controller::run()
             m_board.drawBoard(m_window);
             m_toolBar.drawToolBar(m_window);
             m_window.display();
+            
             if (auto event = sf::Event{}; m_window.waitEvent(event))
             {
                 //handle every case of event
@@ -48,7 +49,7 @@ void Controller::run()
                     break;
                 }
                 case sf::Event::MouseButtonReleased:
-                {
+                {                   
                     auto location = m_window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
                     handleClick(location, type, pressed);
                     break;
@@ -56,11 +57,11 @@ void Controller::run()
 
                 case sf::Event::MouseMoved:
                 {
-                    if (pressed) // if was any press at the tool bar
-                    {
-                        ;//handlereflction(reflection, row, col); //update reflection if the press was in the board
-                    }
-                    break;
+                    //if (pressed) // if was any press at the tool bar
+                    //{
+                    //    handlereflction(reflection, row, col); //update reflection if the press was in the board
+                    //}
+                    //break;
                 }
 
                 }
@@ -75,7 +76,7 @@ void Controller::handleClick(const sf::Vector2f& location, char& type, bool& pre
     if (m_toolBar.getGlobalBounds().contains(location))
     {
         //handle each button at the toolbar
-        type = m_toolBar.handleClickToolBar(location);
+        type = m_toolBar.handleClickToolBar(location, pressed);
         if (type == 'R')
         {
             m_window.close();
@@ -85,10 +86,12 @@ void Controller::handleClick(const sf::Vector2f& location, char& type, bool& pre
             //CreateFile();
             return;
         }
+
+        
     }
     else
     {
-        m_board.handleClickBoard(location, type);
+        m_board.handleClickBoard(location, type, pressed);
     }
 }
 

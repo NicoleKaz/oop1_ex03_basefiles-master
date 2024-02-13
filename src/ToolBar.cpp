@@ -40,17 +40,36 @@ const sf::RectangleShape ToolBar::getButton(const int object)
 	return m_object[object]->GetRec();
 }
 
-char ToolBar::handleClickToolBar(const sf::Vector2f& location)
+
+
+char ToolBar::handleClickToolBar(const sf::Vector2f& location,bool pressed)
 {
-	char type = '0';
+	char type;
 	for (int index = 0; index < 10; index++)
 	{
 		if (m_object[index]->GetRec().getGlobalBounds().contains(location))
 		{
 			type = m_object[index]->GetChar();
+			pressed = true;
+			return type;
 		}
 	}
 	return type;
+}
+
+
+
+
+
+const char ToolBar::GetButtonChar(const int object)
+{
+	//returns the type
+	return m_object[object]->GetChar();
+}
+const sf::RectangleShape ToolBar::getToolBar()
+{
+	//returns toolbar rectangle
+	return m_outline;
 }
 
 

@@ -18,7 +18,7 @@ public:
     const int getRow() const;
 	void setSize();
 	sf::RectangleShape& getMRec();
-	void handleClickBoard(const sf::Vector2f& location, char& type);
+	void handleClickBoard(const sf::Vector2f& location, char& type, bool pressed);
 	void initMatrix();
 	void initWithGivenMatrix(std::ifstream& m_ifile);
 	void drawBoard(sf::RenderWindow& m_window);
