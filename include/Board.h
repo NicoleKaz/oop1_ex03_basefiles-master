@@ -21,8 +21,11 @@ public:
 	void handleClickBoard(const sf::Vector2f& location, char& type, bool pressed);
 	void initMatrix();
 	void initWithGivenMatrix(std::ifstream& m_ifile);
+	void findMouse();
 	void drawBoard(sf::RenderWindow& m_window);
 	enum texture { WALL = 0, DOOR, CAT, MOUSE, CHEESE, PRESENT, KEY, ERASE, RESET, SAVE, TOOL, SIZE };
+	//sf::FloatRect getGlobalBounds()const { return .getGlobalBounds(); }
+	void CreateFile(std::ofstream& m_ofile);
 
 private:
 	int m_row;
@@ -30,4 +33,5 @@ private:
 	std::vector< Row> m_matrixVector;
 	sf::RectangleShape m_rec;
 	sf::Texture m_textures[texture::SIZE]; // the board textures
+	bool m_wasMouse = false;
 };

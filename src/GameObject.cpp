@@ -196,21 +196,4 @@ const char Save::GetChar()const
 	return m_type;
 }
 
-//---------------Tool----------------
-void Tool::init()
-{
-	m_rec.setSize(sf::Vector2f(280.f, 280.f));
-	m_texture.loadFromFile("tool.png");
-	m_rec.setTexture(&m_texture);
-	m_rec.setPosition(sf::Vector2f(560, 560));
-}
 
-const sf::RectangleShape Tool::GetRec()const
-{
-	return m_rec;
-}
-
-const char Tool::GetChar()const
-{
-	return m_type;
-}

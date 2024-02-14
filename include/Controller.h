@@ -16,8 +16,7 @@ public:
 
 private:
     void handleClick(const sf::Vector2f& location, char& type, bool& pressed);
-    void reset();
-    void CreateFile();
+    //void reset();
     ToolBar m_toolBar;
     Board m_board;
     sf::RenderWindow m_window;

@@ -60,27 +60,8 @@ Row& Row::operator=(const Row& other)
             m_char = tempChar;
             m_size = tempSize;
         }
-        else
-        {
-            // אין שגיאה - שחרור המשאבים הישנים
-            delete[] tempCell;
-            delete[] tempChar;
-        }
     }
     return *this;
-}
-
-// יוסיף איבר לסוף השורה
-void Row::push_back(const sf::RectangleShape& value) 
-{
-    sf::RectangleShape* newData = new sf::RectangleShape[m_size + 1];
-    for (int i = 0; i < m_size; ++i) {
-        newData[i] = m_cell[i];
-    }
-    newData[m_size] = value;
-    delete[] m_cell;
-    m_cell = newData;
-    m_size++;
 }
 
 // קבלת ערך במיקום נתון

@@ -15,7 +15,7 @@ Board::Board()
     m_textures[SAVE].loadFromFile("save.png");
     m_textures[RESET].loadFromFile("reset.png");
     m_textures[ERASE].loadFromFile("erase.png");
-    m_textures[TOOL].loadFromFile("tool.png");
+    //m_textures[TOOL].loadFromFile("tool.png");
 }
 
 void Board::initMatrix()
@@ -30,9 +30,12 @@ void Board::initMatrix()
 	}
 }
 
+
+
+
 void Board::initWithGivenMatrix(std::ifstream &m_ifile)
 {
-	m_ifile.get(); // for \n
+	//m_ifile.get(); // for \n
 	// Read the two integers from the file
 	m_ifile >> m_row >> m_col;
 	m_ifile.get(); // for \n //אולי תהיה בעייה עם הירדית שורה על מנת לקרוא את הנתונים
@@ -52,6 +55,21 @@ void Board::initWithGivenMatrix(std::ifstream &m_ifile)
 	}
 }
 
+void  Board::findMouse()
+{
+    for (int row = 0; row < m_matrixVector.size(); ++row)
+    {
+        for (int col = 0; col < m_col; ++col)
+        {
+            if (m_matrixVector[row].getChar(col) == '%') // adding each char at the corrnt place
+            {
+                m_wasMouse = true;
+                return;
+            }
+        }
+    }
+}
+
 void Board::drawBoard(sf::RenderWindow &m_window)
 {
     float offset = 300 ;
@@ -62,22 +80,28 @@ void Board::drawBoard(sf::RenderWindow &m_window)
         {
             sf::Vector2f location((col * m_rec.getSize().x) + offset, num_of_row * m_rec.getSize().y);
             char type = m_matrixVector[row].getChar(col);
+            m_rec.setTexture(NULL);
+            m_rec.setFillColor(sf::Color::White);
+            m_rec.setOutlineColor(sf::Color::Color(102, 102, 102));
+            m_rec.setOutlineThickness(2.f);
+            m_rec.setPosition(location); //בגלל שהתפריט מגיע מצד שמאל לפני הבורד.
+            m_window.draw(m_rec);
             switch (type)
             {
             case '#':
             {
                 m_rec.setTexture(&m_textures[0], true);
                 m_rec.setOutlineColor(sf::Color::Color(102, 102, 102));
-                m_rec.setOutlineThickness(1.f);
+                m_rec.setOutlineThickness(2.f);
                 m_rec.setPosition(location); //בגלל שהתפריט מגיע מצד שמאל לפני הבורד.
                 m_window.draw(m_rec);
                 break;
-            }
+            } 
             case 'D':
             {
                 m_rec.setTexture(&m_textures[1], true);
                 m_rec.setOutlineColor(sf::Color::Color(102, 102, 102));
-                m_rec.setOutlineThickness(1.f);
+                m_rec.setOutlineThickness(2.f);
                 m_rec.setPosition(location); //בגלל שהתפריט מגיע מצד שמאל לפני הבורד.
                 m_window.draw(m_rec);
                 break;
@@ -86,7 +110,7 @@ void Board::drawBoard(sf::RenderWindow &m_window)
             {
                 m_rec.setTexture(&m_textures[2], true);
                 m_rec.setOutlineColor(sf::Color::Color(102, 102, 102));
-                m_rec.setOutlineThickness(1.f);
+                m_rec.setOutlineThickness(2.f);
                 m_rec.setPosition(location); //בגלל שהתפריט מגיע מצד שמאל לפני הבורד.
                 m_window.draw(m_rec);
                 break;
@@ -95,7 +119,7 @@ void Board::drawBoard(sf::RenderWindow &m_window)
             {
                 m_rec.setTexture(&m_textures[3], true);
                 m_rec.setOutlineColor(sf::Color::Color(102, 102, 102));
-                m_rec.setOutlineThickness(1.f);
+                m_rec.setOutlineThickness(2.f);
                 m_rec.setPosition(location); //בגלל שהתפריט מגיע מצד שמאל לפני הבורד.
                 m_window.draw(m_rec);
                 break;
@@ -104,7 +128,7 @@ void Board::drawBoard(sf::RenderWindow &m_window)
             {
                 m_rec.setTexture(&m_textures[4], true);
                 m_rec.setOutlineColor(sf::Color::Color(102, 102, 102));
-                m_rec.setOutlineThickness(1.f);
+                m_rec.setOutlineThickness(2.f);
                 m_rec.setPosition(location); //בגלל שהתפריט מגיע מצד שמאל לפני הבורד.
                 m_window.draw(m_rec);
                 break;;
@@ -113,7 +137,7 @@ void Board::drawBoard(sf::RenderWindow &m_window)
             {
                 m_rec.setTexture(&m_textures[5], true);
                 m_rec.setOutlineColor(sf::Color::Color(102, 102, 102));
-                m_rec.setOutlineThickness(1.f);
+                m_rec.setOutlineThickness(2.f);
                 m_rec.setPosition(location); //בגלל שהתפריט מגיע מצד שמאל לפני הבורד.
                 m_window.draw(m_rec);
                 break;
@@ -122,24 +146,27 @@ void Board::drawBoard(sf::RenderWindow &m_window)
             {
                 m_rec.setTexture(&m_textures[6], true);
                 m_rec.setOutlineColor(sf::Color::Color(102, 102, 102));
-                m_rec.setOutlineThickness(1.f);
+                m_rec.setOutlineThickness(2.f);
                 m_rec.setPosition(location); //בגלל שהתפריט מגיע מצד שמאל לפני הבורד.
                 m_window.draw(m_rec);
                 break;
             }
 
             case ' ':
-                m_rec.setFillColor(sf::Color::Black);
+                //m_rec.setTexture(nullptr, true);
+                m_rec.setTexture(NULL);
+                m_rec.setFillColor(sf::Color::White);
                 m_rec.setOutlineColor(sf::Color::Color(102, 102, 102));
-                m_rec.setOutlineThickness(1.f);
+                m_rec.setOutlineThickness(2.f);
                 m_rec.setPosition(location); //בגלל שהתפריט מגיע מצד שמאל לפני הבורד.
                 m_window.draw(m_rec);
                 break;
 
             default:
-                m_rec.setFillColor(sf::Color::Black);
+                m_rec.setTexture(NULL);
+                m_rec.setFillColor(sf::Color::White);
                 m_rec.setOutlineColor(sf::Color::Color(102, 102, 102));
-                m_rec.setOutlineThickness(1.f);
+                m_rec.setOutlineThickness(2.f);
                 m_rec.setPosition(location); //בגלל שהתפריט מגיע מצד שמאל לפני הבורד.
                 m_window.draw(m_rec);
 
@@ -149,6 +176,21 @@ void Board::drawBoard(sf::RenderWindow &m_window)
         num_of_row++;
     }
 
+}
+
+void Board::CreateFile(std::ofstream& m_ofile)
+{
+    m_ofile.open("Board.txt"); //opening the file
+    m_ofile << m_row<< " " << m_col<< '\n'; //adding the size of the board at the top
+
+    for (int row = 0; row < m_matrixVector.size(); ++row)
+    {
+        for (int col = 0; col < m_col; ++col)
+        {
+            m_ofile << m_matrixVector[row].getChar(col); // adding each char at the corrnt place
+        }
+        m_ofile << '\n'; //endl
+    }
 }
 
 void Board::SetRow(const int row)
@@ -188,24 +230,25 @@ sf::RectangleShape& Board::getMRec()
 
 void Board::handleClickBoard(const sf::Vector2f& location, char& type,bool pressed)
 {
-    if (!pressed)
+    float offset = 300;
+    int row = location.y / m_rec.getSize().y;
+    int col = (location.x - offset) / m_rec.getSize().x;
+
+    if (row >= 0 && row < m_matrixVector.size() && col >= 0 && col < m_matrixVector[row].getSize())
     {
-        return;
-    }
-    else
-    {
-        for (int row = 0; row < m_matrixVector.size(); row++)
+        if (type == '%' && !m_wasMouse)
         {
-            for (int col = 0; col < m_col; col++)
+            m_matrixVector[row].setChar(col, type);
+            m_wasMouse = true;
+        }
+        else if(type != '%')
+        {
+            if (m_matrixVector[row].getChar(col) == '%')
             {
-                if (m_matrixVector[row].at(col).getGlobalBounds().contains(location))
-                {
-                    m_matrixVector[row].setChar(col, type);
-                    return;
-                }
-                
+                m_wasMouse = false;
             }
-        }  
+            m_matrixVector[row].setChar(col, type);
+        }
     }
 }
 

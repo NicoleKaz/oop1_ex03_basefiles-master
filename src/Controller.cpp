@@ -8,7 +8,7 @@ void Controller::initWindow()
     m_background.setSmooth(true);
     sf::Sprite s1(m_background);
     s1.scale(sf::Vector2f(1.2f, 1.2f));
-    m_window.clear(sf::Color::Color(255, 255, 230));
+    m_window.clear(sf::Color::Color(0, 0, 0));
     m_window.draw(s1);
     m_window.display();
 }
@@ -31,7 +31,7 @@ void Controller::run()
         while (m_window.isOpen())
         {
             //clear and draw
-            m_window.clear(sf::Color::Color(255, 255, 230));
+            m_window.clear(sf::Color::Color(0, 0, 0));
             m_window.draw(s1);
             m_board.drawBoard(m_window);
             m_toolBar.drawToolBar(m_window);
@@ -49,21 +49,11 @@ void Controller::run()
                     break;
                 }
                 case sf::Event::MouseButtonReleased:
-                {                   
+                {
                     auto location = m_window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
                     handleClick(location, type, pressed);
                     break;
                 }
-
-                case sf::Event::MouseMoved:
-                {
-                    //if (pressed) // if was any press at the tool bar
-                    //{
-                    //    handlereflction(reflection, row, col); //update reflection if the press was in the board
-                    //}
-                    //break;
-                }
-
                 }
             }
         }
@@ -83,7 +73,7 @@ void Controller::handleClick(const sf::Vector2f& location, char& type, bool& pre
         }
         else if (type == 'S')
         {
-            //CreateFile();
+            m_board.CreateFile(m_ofile);
             return;
         }
 
@@ -95,11 +85,13 @@ void Controller::handleClick(const sf::Vector2f& location, char& type, bool& pre
     }
 }
 
+
 void Controller::init()
 {
     if (!m_ifile.fail()) //if file opend
     {
         m_board.initWithGivenMatrix(m_ifile);//reset the matrix with the file
+        m_board.findMouse();
     }
     else
     {

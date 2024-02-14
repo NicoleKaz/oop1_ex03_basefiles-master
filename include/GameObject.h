@@ -166,20 +166,7 @@ private:
 	char m_type = 'S';
 	sf::Texture m_texture;
 };
-//---------------Tool-----------------
 
-class Tool : public GameObject
-{
-public:
-	void init();
-	const sf::RectangleShape GetRec()const;
-	const char GetChar()const;
-
-private:
-	sf::RectangleShape m_rec;
-	char m_type = 't';
-	sf::Texture m_texture;
-};
 
 
 

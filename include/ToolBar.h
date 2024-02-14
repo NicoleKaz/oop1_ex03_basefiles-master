@@ -34,9 +34,9 @@ private:
     Erase m_erase;
     Reset m_reset;
     Save m_save;
-    Tool m_tool;
+
 
     //buttons array
     GameObject* m_object[NUM_OF_OBJECT] = { &m_wall, &m_door, &m_cat, &m_mouse, &m_cheese,
-                                           &m_present, &m_key, &m_erase, &m_reset, &m_save, &m_tool };
+                                           &m_present, &m_key, &m_erase, &m_reset, &m_save };
 };
