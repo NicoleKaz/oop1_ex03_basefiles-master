@@ -26,6 +26,7 @@ public:
 	enum texture { WALL = 0, DOOR, CAT, MOUSE, CHEESE, PRESENT, KEY, ERASE, RESET, SAVE, TOOL, SIZE };
 	//sf::FloatRect getGlobalBounds()const { return .getGlobalBounds(); }
 	void CreateFile(std::ofstream& m_ofile);
+	void wasMouse();
 
 private:
 	int m_row;

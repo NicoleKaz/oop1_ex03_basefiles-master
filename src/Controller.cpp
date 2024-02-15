@@ -69,6 +69,7 @@ void Controller::handleClick(const sf::Vector2f& location, char& type, bool& pre
         type = m_toolBar.handleClickToolBar(location, pressed);
         if (type == 'R')
         {
+            m_board.wasMouse();
             m_window.close();
         }
         else if (type == 'S')

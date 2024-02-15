@@ -46,11 +46,12 @@ void Board::initWithGivenMatrix(std::ifstream &m_ifile)
 	for (auto& row : m_matrixVector)
 	{
 		Row temp_row(m_col);
-		for (int col = 0; col < m_col; col++)
+		for (int col = 0; col < (m_col); col++)
 		{
 			m_ifile.get(c);
 			temp_row.writeOnIndex(col, c);
 		}
+        m_ifile.get(c);
 		row.operator= (temp_row);
 	}
 }
@@ -74,11 +75,11 @@ void Board::drawBoard(sf::RenderWindow &m_window)
 {
     float offset = 300 ;
     int num_of_row = 0;
-    for (int row = 0 ; row < m_matrixVector.size(); row++)
+    for (int row = 0 ; row < m_matrixVector.size(); ++row)
     {
         for (int col = 0; col < m_col; ++col)
         {
-            sf::Vector2f location((col * m_rec.getSize().x) + offset, num_of_row * m_rec.getSize().y);
+            sf::Vector2f location((col * m_rec.getSize().x) + offset, num_of_row * m_rec.getSize().y );
             char type = m_matrixVector[row].getChar(col);
             m_rec.setTexture(NULL);
             m_rec.setFillColor(sf::Color::White);
@@ -191,6 +192,11 @@ void Board::CreateFile(std::ofstream& m_ofile)
         }
         m_ofile << '\n'; //endl
     }
+}
+
+void Board::wasMouse()
+{
+    m_wasMouse = false;
 }
 
 void Board::SetRow(const int row)

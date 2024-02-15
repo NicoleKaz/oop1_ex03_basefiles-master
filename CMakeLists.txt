@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.26)
 
 project (oop1_ex03)
 set (COURSE_EXAMPLE ON)
-set (MY_AUTHORS "")
+set (MY_AUTHORS "Herut_Partner-Nicole_Kaznzv")
 
 include (cmake/CompilerSettings.cmake)
 
