@@ -1,32 +1,32 @@
-תרגיל 4 עורך שלבים
-שמות המגישים:
-חרות פרטנר 205741333
-ניקול קז' 208258095
-התרגיל עוסק בבניית עורך שלבים למשחק החתול והעכבר.
-מטרת התרגיל לתרגל ירושה ושימוש בספריית sfml.
-הקבצים שיצרנו :
-Controller.h מריץ את התוכנית ומקשר בין כל האלמנטים.  
-Controller. cpp מימוש פונקציית ריצה ציבורית. ושאר הפונקציות הרלוונטיות כפרטיות.
+Exercise 4 LEVELS EDITOR
+The names of the presenters:
+Harut Partner 205741333
+Nicole Kazantsev 208258095
+The exercise is about building a levels editor for the cat and mouse game.
+The purpose of the exercise is to practice inheritance and using the sfml library.
 
-Toolbar.hמחלקה האחראית על תפריט הכפתורים 
-Toolbar.cpp מימוש הפונקציות הרלוונטיות המתאימות.   
+The files we created:
+Controller.h : runs the program and links all the elements.  
+Controller.cpp : public run function implementation. and the other relevant functions as privacy.
 
-Board.h מחלקה שאחראית על הדפסת הלוח של המלבנים ועדכנו   
-Board.cpp מימוש הפונקציות הרלוונטיות. וטעינה של טקסטורות.  
-GameObject.h מחלקה של כפתורים שתפקידה להכיל מידע אודות הכפתורים שנמצאים בתפריט הכפתורים.
+Toolbar.h : class responsible for the button menu. 
+Toolbar.cpp : implementing the appropriate relevant functions.   
 
-GameObject.cpp מימוש פונקציות רלוונטיות. בעיקר כאלו שמאתחלות את המידע בכל כפתור וכאלו שמחזירות את המידע הכתוב בו.
-מבנv נתונים עיקרי :
-וקטור חד ממדי של char. שממנו יוצאים row's לפי בקשה  == m_matrixVector
-rectangleshape. מצייר את המלבנים עם טקסטורות רלוונטיות.
+Board.h : is a class responsible for printing the board of the rectangles and updating it.   
+Board.cpp : implementing the relevant functions. and loading textures.  
+GameObject.h : A button class whose function is to contain information about the buttons found in the button menu.
 
-אלוגריתמים ראויים לציון :
-תיכון:
-מחלקת controller מהווה מחלקה מקשרת בין האובייקטים. היא מכילה ממברים מכל מחלקה שנוצרה(פרט לGameObject שהיא ממבר של  toolbar)
-היא אחראית לקרוא לפונקציות רלוונטיות שנמצאות במחלקות האחרות ולעדכן את המידע לאחר לחיצה של המשתמש במטריצת התווים.
-לאחר העדכון היא תצייר את הלוח המעודכן.
-באגים ידועים :
-הערות :
-פורמט קובץ הטקסט שמתקבל הוא בשורה עליונה אורך ורוחב הלוח.
-ולאחר מכן התווים הרלונטים.
+GameObject.cpp : Implementation of relevant functions. Mainly those that initialize the information with each button and those that return the information written in it.
 
+Main data structure:
+A one-dimensional vector of char : from which row's come out by request == m_matrixVector
+rectangleshape : Draws the rectangles with relevant textures.
+
+secondary:
+The controller class is a connecting class between the objects. It contains members from every created class (except GameObject which is a toolbar member)
+It is responsible for calling relevant functions found in the other classes and updating the information after the user clicks on the character matrix.
+After the update it will draw the updated board.
+
+Notes:
+The format of the resulting text file is in the upper row the length and width of the board.
+and then the related characters.

@@ -21,7 +21,7 @@ void Controller::run()
         initWindow();
         //sets the background sprit
         sf::Sprite s1(m_background);
-        s1.scale(sf::Vector2f(1.2f, 1.2f));
+        s1.scale(sf::Vector2f(1.3f, 1.2f));
         init();
         bool pressed = false;
         char type = 0;
@@ -77,8 +77,6 @@ void Controller::handleClick(const sf::Vector2f& location, char& type, bool& pre
             m_board.CreateFile(m_ofile);
             return;
         }
-
-        
     }
     else
     {

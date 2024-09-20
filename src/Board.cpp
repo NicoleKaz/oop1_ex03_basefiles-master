@@ -31,8 +31,6 @@ void Board::initMatrix()
 }
 
 
-
-
 void Board::initWithGivenMatrix(std::ifstream &m_ifile)
 {
 	//m_ifile.get(); // for \n
